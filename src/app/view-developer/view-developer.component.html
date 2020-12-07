@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Developer Under {{ managerName }}</h2>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let data of deptList">
+      <div class="card">
+        <h6 class="card-title">
+          DepartMent Name:-
+          <small>{{ data?.departmentname }}</small>
+        </h6>
+
+        <div class="card-block">
+          <h6 class="card-title">
+            Manager Name <small>{{ data?.managerName }}</small>
+          </h6>
+          <h6 class="card-title">
+            Developer Name <small>{{ data?.developer }}</small>
+          </h6>
+          <div class="meta"></div>
+        </div>
+        <div class="card-footer">Total Cost : ${{ totalRuppees }}</div>
+      </div>
+    </div>
+  </div>
+</div>

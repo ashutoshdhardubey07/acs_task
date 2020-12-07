@@ -1,0 +1,42 @@
+
+<div class="container">
+  <h2>Add Manager</h2>
+
+  <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let data of deptList">
+          <div class="card">
+              <div class="card-block">
+                  <h4 class="card-title">{{data?.departmentName}}</h4>
+                  <div class="meta">
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <button  (click)="showForm(data.departmentName)">Add Manager</button>
+                  <button [routerLink]="['/view-manager',data.departmentName]">View</button>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="jumbotron"  *ngIf="show">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>Add Manager</h3>
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="managerName">Manager Name</label>
+                        <input type="text" class="form-control" name="managerName" [(ngModel)]="model.managerName" #managerName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && managerName.invalid }" required />
+                        <div *ngIf="f.submitted && managerName.invalid" class="invalid-feedback">
+                            <div *ngIf="managerName.errors.required">Manager Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
